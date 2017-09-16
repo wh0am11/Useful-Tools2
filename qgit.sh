@@ -16,9 +16,22 @@ then
 
 	echo "Error: Couldn't commit file" 2>&1
 
-else 
+else
 
-	git add . 
+	directory=""
+
+	if [[ "$2" != "" ]]
+	then
+		directory=$2
+	else
+		directory="."
+	fi
+
+	echo $directory
+
+	cd $directory
+
+	git add .
 	git commit -m "$1"
 	git push origin master
 
