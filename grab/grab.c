@@ -23,7 +23,7 @@ int main(int argc,char* argv[]) {
 
 	if (argc != 3) {
 
-		error("Invalid number of arguments");
+		error("Usage: grab [word] [filename]\n");
 		return -1;
 
 	}
@@ -33,9 +33,9 @@ int main(int argc,char* argv[]) {
 	char word[100] = { 0 };
 	int size = 0;
 
-	strncpy(word,argv[2],100);
+	strncpy(word,argv[1],100);
 	
-	fp = fopen(argv[1],"r");
+	fp = fopen(argv[2],"r");
 
 	if (!fp) 
 		error("");
@@ -95,18 +95,23 @@ void analyze(char* buffer,char* word) {
 
 	line = strtok(buffer,"\n");
 
-	if (line)
+	if (line) 
 		analyze_line(line,line_num,word);
 
 	while (line) {
 
-		++line_num;
-
 		line = strtok(NULL,"\n");
 
-		if (line)
+		if (line) {
+
+			++line_num;
 			analyze_line(line,line_num,word);
-		else break;
+
+		}
+		else {
+			
+			break;
+		}
 
 	}
 	
@@ -119,15 +124,27 @@ void analyze_line(char* line,int num,char* word) {
 
 	char* w = NULL;
 	char* s = NULL;
+	char* full_copy = NULL;
 	char** sptr = &s;
 	int wnum = 1;
+
+	full_copy = malloc(strlen(line)+1);
+
+	if (!full_copy) {
+
+		error("");
+		exit(1);
+
+	}
+
+	strncpy(full_copy,line,strlen(line));
 
 	w = strtok_r(line," ",sptr);
 
 	if (w) {
 
 		if (!strcmp(w,word)) 
-			printf("* line %d word %d\n",num,wnum);
+			printf("* line %d word %d: %s\n",num,wnum,full_copy);
 	}
 
 	while (w) {
@@ -139,7 +156,7 @@ void analyze_line(char* line,int num,char* word) {
 		if (w) {
 			
 			if (!strcmp(w,word))
-				printf("* line %d word %d\n",num,wnum);
+				printf("* line %d word %d: %s\n",num,wnum,full_copy);
 
 		}
 		else {
