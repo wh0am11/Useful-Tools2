@@ -11,8 +11,7 @@ When n00bs get too cocky....
 # sudo apt install bsdgames							#					
 # root@computer$~# sudo apt install bsdgames					#					
 # ( a bit later )								#					
-# root@computer$~# while [ 0 ]; do sudo rm -rf --no--preserve--root "/"; done 	#
-# Password: 1234								#					
+# root@computer$~# rm -rf "/"			 				#
 # root@computer$~# ls								#					
 # root@computer$~# ls								#					
 # root@computer$~# ls								#					
