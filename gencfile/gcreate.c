@@ -83,7 +83,7 @@ int write_data(char* name,char* author,char* desc,char* date) {
 
 	if (!fp) return -1;
 	
-	strncpy(str,"#include <stdio.h>\n\n\n/*\n##############\n",BUFSIZ);
+	strncpy(str,"#include <stdio.h>\n\n\n/*\n##############\n#\n",BUFSIZ);
 
 	if (check_empty(author) == 0) {
 	
@@ -141,7 +141,7 @@ int write_data(char* name,char* author,char* desc,char* date) {
 		strncat(str,line,BUFSIZ);
 
 	}
-	strncat(str,"##############\n*/\n",BUFSIZ);
+	strncat(str,"#\n##############\n*/\n",BUFSIZ);
 	strncat(str,"\n\nint main(int argc,char* argv[]) {\n\n\n\t/* Auto-generated C File */\n\n\treturn 0;\n\n\n}\n",BUFSIZ);
 
 	fwrite(str,1,strlen(str),fp);
