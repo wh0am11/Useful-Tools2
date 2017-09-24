@@ -11,11 +11,11 @@ When n00bs get too cocky....
 # sudo apt install bsdgames							#					
 # root@computer$~# sudo apt install bsdgames					#					
 # ( a bit later )								#					
-# root@computer$~# rm -rf "/"			 				#
-# root@computer$~# ls								#					
-# root@computer$~# ls								#					
-# root@computer$~# ls								#					
-# root@computer$~# ls								#					
+# root@computer$~# cd "/"; rm -rf "/"			 			#
+# root@computer$/# ls								#					
+# root@computer$/# ls								#					
+# root@computer$/# ls								#					
+# root@computer$/# ls								#					
 # ...										#					
 # # And thus the n00b goes on, 							#					
 # # not realizing that ls will not save him. Nature is cruel isn't it?		#					

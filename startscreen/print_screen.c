@@ -20,9 +20,9 @@ void display_file(const char* display,const char* color);
 
 int main(int argc,char* argv[]) {
 
-	char* file_array[3] = { 
+	char* file_array[4] = { 
 		"/home/wh0am1/code/Useful-Tools2/startscreen/l33t", "/home/wh0am1/code/Useful-Tools2/startscreen/hack",
-		"/home/wh0am1/code/Useful-Tools2/startscreen/os"
+		"/home/wh0am1/code/Useful-Tools2/startscreen/os", "/home/wh0am1/code/Useful-Tools2/startscreen/universe"
 	};
 	char* color[12] = { /* why the hell is light gray even a color code? It's the same as white? And who wants black? */
 
@@ -36,7 +36,7 @@ int main(int argc,char* argv[]) {
 	
 	srand((unsigned int)time(NULL));
 
-	index = rand() % 3;
+	index = rand() % 4;
 
 	color_index = rand() % 13;
 
