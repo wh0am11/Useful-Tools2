@@ -8,28 +8,27 @@
 
 #define MAX_DATA 5000
 
-void write_h_file(FILE *fp) {
+void write_file(FILE *fp, const char *data, const size_t data_len) {
 
-	const char *data = "#ifdef __something__\n#define __something__\n\n#include <stdio.h>\n\n#endif\n";
+	if (fwrite(data, data_len, 1, fp) < 0) {
 
-	if (fwrite(data, strlen(data), 1, fp) < 0) {
-
-		perror("Unable to write to file");
+		perror("gcreate");
 		return;
 	}
 
+}
+
+void write_h_file(FILE *fp) {
+
+	const char *data = "#ifdef __something__\n#define __something__\n\n#include <stdio.h>\n\n#endif\n";
+	write_file(fp, data, strlen(data));
 
 }
 
 void write_c_file(FILE *fp) {
 
 	const char *data = "\n\n#include <stdio.h>\n\n\n\nint main(int argc, char *argv[]) {\n\n\nreturn 0;\n\n}";
-
-	if (fwrite(data, strlen(data), 1, fp) < 0) {
-
-		perror("Unable to write to file");
-		return;
-	}
+	write_file(fp, data, strlen(data));
 
 }
 
