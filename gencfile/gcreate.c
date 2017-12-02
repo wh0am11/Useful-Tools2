@@ -20,7 +20,7 @@ void write_file(FILE *fp, const char *data, const size_t data_len) {
 
 void write_h_file(FILE *fp) {
 
-	const char *data = "#ifdef __something__\n#define __something__\n\n#include <stdio.h>\n\n#endif\n";
+	const char *data = "#ifndef __something__\n#define __something__\n\n#include <stdio.h>\n\n#endif\n";
 	write_file(fp, data, strlen(data));
 
 }
