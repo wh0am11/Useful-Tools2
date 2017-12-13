@@ -1,6 +1,3 @@
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,7 +24,7 @@ void write_h_file(FILE *fp) {
 
 void write_c_file(FILE *fp) {
 
-	const char *data = "\n\n#include <stdio.h>\n\n\n\nint main(int argc, char *argv[]) {\n\n\n\treturn 0;\n\n}";
+	const char *data = "#include <stdio.h>\n\n\n\nint main(int argc, char *argv[]) {\n\n\n\treturn 0;\n\n}";
 	write_file(fp, data, strlen(data));
 
 }
